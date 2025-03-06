@@ -58,28 +58,28 @@ const SystemCheckStep = () => {
     <VStack gap={6} align="stretch">
       <Box textAlign="center" py={4}>
         <Text fontSize="lg" mb={4}>
-          We're checking your system to determine the best setup for Ollama.
+          Nous vérifions votre système pour déterminer la meilleure configuration pour Ollama.
         </Text>
       </Box>
 
       <Box p={6} borderRadius="md" borderWidth="1px" borderColor="blue.200" bg="blue.50">
         <Box display="flex" alignItems="center" mb={2}>
           <InfoIcon color="blue.500" mr={2} />
-          <Text fontWeight="bold">What is Ollama?</Text>
+          <Text fontWeight="bold">Qu'est-ce qu'Ollama ?</Text>
         </Box>
         <Text mb={3}>
-          Ollama is an open-source tool that allows you to run AI models locally on your computer.
-          This ensures your data never leaves your machine, providing privacy and security for sensitive legal documents.
+          Ollama est un outil open-source qui vous permet d'exécuter des modèles d'IA localement sur votre ordinateur.
+          Cela garantit que vos données ne quittent jamais votre machine, assurant la confidentialité et la sécurité de vos documents sensibles.
         </Text>
         <Text>
-          The system check will determine if Ollama is already installed on your system.
+          La vérification du système déterminera si Ollama est déjà installé sur votre système.
         </Text>
       </Box>
 
       {isLoading ? (
         <Box textAlign="center" py={8}>
           <Spinner size="xl" color="blue.500" mb={4} />
-          <Text>Scanning your system...</Text>
+          <Text>Analyse de votre système en cours...</Text>
         </Box>
       ) : (
         <VStack gap={4} align="stretch">
@@ -90,10 +90,10 @@ const SystemCheckStep = () => {
               ) : (
                 <Spinner size="sm" mr={2} />
               )}
-              <Text fontWeight="bold">Operating System</Text>
+              <Text fontWeight="bold">Système d'exploitation</Text>
             </Box>
             <Text ml={6} mt={1}>
-              {systemInfo.os ? `Detected: ${systemInfo.os}` : 'Checking...'}
+              {systemInfo.os ? `Détecté : ${systemInfo.os}` : 'Vérification en cours...'}
             </Text>
           </Box>
 
@@ -104,10 +104,10 @@ const SystemCheckStep = () => {
               ) : (
                 <Spinner size="sm" mr={2} />
               )}
-              <Text fontWeight="bold">System Architecture</Text>
+              <Text fontWeight="bold">Architecture système</Text>
             </Box>
             <Text ml={6} mt={1}>
-              {systemInfo.arch ? `Detected: ${systemInfo.arch}` : 'Checking...'}
+              {systemInfo.arch ? `Détecté : ${systemInfo.arch}` : 'Vérification en cours...'}
             </Text>
           </Box>
 
@@ -120,14 +120,14 @@ const SystemCheckStep = () => {
               ) : (
                 <WarningIcon color="orange.500" mr={2} />
               )}
-              <Text fontWeight="bold">Ollama Installation</Text>
+              <Text fontWeight="bold">Installation d'Ollama</Text>
             </Box>
             <Text ml={6} mt={1}>
               {!checkComplete
-                ? 'Checking...'
+                ? 'Vérification en cours...'
                 : systemInfo.isOllamaInstalled
-                ? 'Ollama is already installed and running!'
-                : 'Ollama is not installed or not running.'}
+                ? 'Ollama est déjà installé et en cours d\'exécution !'
+                : 'Ollama n\'est pas installé ou n\'est pas en cours d\'exécution.'}
             </Text>
           </Box>
 
@@ -144,16 +144,16 @@ const SystemCheckStep = () => {
             >
               <AlertIcon boxSize="24px" mr={0} />
               <AlertTitle mt={4} mb={1} fontSize="lg">
-                Connection Issue Detected
+                Problème de connexion détecté
               </AlertTitle>
               <AlertDescription maxWidth="sm">
-                We couldn't connect to Ollama. This usually means Ollama is not installed or not running.
+                Nous n'avons pas pu nous connecter à Ollama. Cela signifie généralement qu'Ollama n'est pas installé ou n'est pas en cours d'exécution.
                 <Box mt={3}>
                   <Button
                     colorScheme="blue"
                     onClick={handleGoToInstallation}
                   >
-                    Continue to Installation Instructions
+                    Continuer vers les instructions d'installation
                   </Button>
                 </Box>
               </AlertDescription>
@@ -174,13 +174,13 @@ const SystemCheckStep = () => {
               <AlertIcon boxSize="24px" mr={0} />
               <AlertTitle mt={4} mb={1} fontSize="lg">
                 {systemInfo.isOllamaInstalled
-                  ? 'Ollama is already installed!'
-                  : 'Ready to install Ollama'}
+                  ? 'Ollama est déjà installé !'
+                  : 'Prêt à installer Ollama'}
               </AlertTitle>
               <AlertDescription maxWidth="sm">
                 {systemInfo.isOllamaInstalled
-                  ? 'We can proceed to downloading a model for anonymization.'
-                  : `Based on your ${systemInfo.os} system with ${systemInfo.arch} architecture, we'll help you install Ollama.`}
+                  ? 'Nous pouvons procéder au téléchargement d\'un modèle pour l\'anonymisation.'
+                  : `En fonction de votre système ${systemInfo.os} avec l'architecture ${systemInfo.arch}, nous allons vous aider à installer Ollama.`}
               </AlertDescription>
             </Alert>
           )}
@@ -189,7 +189,7 @@ const SystemCheckStep = () => {
 
       <StepNavigation
         nextDisabled={!checkComplete && !connectionError}
-        nextLabel={systemInfo.isOllamaInstalled ? 'Choose Model' : 'Install Ollama'}
+        nextLabel={systemInfo.isOllamaInstalled ? 'Choisir le modèle' : 'Installer Ollama'}
       />
     </VStack>
   );

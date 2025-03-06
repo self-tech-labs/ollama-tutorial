@@ -15,8 +15,8 @@ const StepNavigation = ({
   onBack,
   nextDisabled = false,
   backDisabled = false,
-  nextLabel = 'Next',
-  backLabel = 'Back',
+  nextLabel = 'Suivant',
+  backLabel = 'Retour',
 }: StepNavigationProps) => {
   const { currentStep, setCurrentStep } = useTutorial();
 
@@ -81,23 +81,35 @@ const StepNavigation = ({
   };
 
   return (
-    <Flex mt={6}>
-      {currentStep !== TutorialStep.WELCOME && (
+    <Flex mt={8} width="100%" justifyContent="space-between">
+      {currentStep !== TutorialStep.WELCOME ? (
         <Button
           onClick={handleBack}
           disabled={backDisabled}
           variant="outline"
-          colorScheme="gray"
+          colorScheme="teal"
+          size={{ base: "md", md: "lg" }}
+          px={{ base: 4, md: 6 }}
+          borderRadius="md"
+          _hover={{ bg: 'teal.50' }}
         >
           {backLabel}
         </Button>
+      ) : (
+        <div></div> // Empty div to maintain flex layout
       )}
-      <Spacer />
+      
       {currentStep !== TutorialStep.COMPLETE && (
         <Button
           onClick={handleNext}
           disabled={nextDisabled}
-          colorScheme="blue"
+          colorScheme="teal"
+          size={{ base: "md", md: "lg" }}
+          px={{ base: 4, md: 6 }}
+          borderRadius="md"
+          boxShadow="md"
+          _hover={{ transform: 'translateY(-2px)', boxShadow: 'lg' }}
+          transition="all 0.2s"
         >
           {nextLabel}
         </Button>

@@ -10,28 +10,28 @@ const TestAnonymizationStep = () => {
   const [error, setError] = useState<string | null>(null);
   const [isOllamaNotRunning, setIsOllamaNotRunning] = useState(false);
 
-  // Sample legal text
+  // Exemple de texte juridique
   const sampleLegalText = `
-Client: John Smith
-Date of Birth: 05/12/1980
-Address: 123 Main Street, New York, NY 10001
-Phone: (555) 123-4567
-Email: john.smith@example.com
-Case Number: ABC-12345
+Client : Jean Dupont
+Date de naissance : 12/05/1980
+Adresse : 15 Avenue de la Gare, Lausanne, 1003
+Téléphone : 021 123 45 67
+Email : jean.dupont@exemple.ch
+Numéro de dossier : ABC-12345
 
-Dear Mr. Smith,
+Cher M. Dupont,
 
-This letter is to confirm our meeting on June 15, 2023, at 2:00 PM regarding your divorce proceedings against Jane Smith. We will discuss the division of assets located at 456 Park Avenue and custody arrangements for your children, Michael (12) and Sarah (9).
+Cette lettre confirme notre rendez-vous du 15 juin 2023 à 14h00 concernant votre procédure de divorce contre Marie Dupont. Nous discuterons de la répartition des biens situés au 24 Rue de Bourg et des arrangements de garde pour vos enfants, Michel (12 ans) et Sarah (9 ans).
 
-Please bring your bank statements from Chase Bank (Account #987654321) and any correspondence from Ms. Smith's attorney, Robert Johnson of Johnson & Associates (phone: 555-987-6543).
+Veuillez apporter vos relevés bancaires de UBS (Compte n°987654321) et toute correspondance de l'avocat de Mme Dupont, Me Robert Martin du cabinet Martin & Associés (tél : 021 987 65 43).
 
-Sincerely,
-Attorney Elizabeth Williams
-Bar Number: 98765
-Williams Legal Services
-789 Broadway, Suite 500
-New York, NY 10003
-Phone: (555) 789-0123
+Cordialement,
+Maître Élisabeth Martin
+Numéro du Barreau : 98765
+Cabinet Martin Services Juridiques
+8 Place Saint-François
+Lausanne, 1003
+Téléphone : 021 789 01 23
 `;
 
   const handleLoadSample = () => {
@@ -79,23 +79,23 @@ Phone: (555) 789-0123
     <VStack gap={6} align="stretch">
       <Box textAlign="center" py={4}>
         <Text fontSize="lg" mb={4}>
-          Test the Anonymization Capabilities
+          Testez les Capacités d'Anonymisation
         </Text>
         <Text fontSize="md" color="gray.600">
-          Now that you have installed Ollama and downloaded a model, let's test its anonymization capabilities.
+          Maintenant que vous avez installé Ollama et téléchargé un modèle, testons ses capacités d'anonymisation.
         </Text>
       </Box>
 
       <Box p={6} borderRadius="md" borderWidth="1px" borderColor="blue.200" bg="blue.50">
         <Text fontWeight="bold" mb={4} fontSize="lg">
-          How it works
+          Comment ça fonctionne
         </Text>
         <Text mb={3}>
-          The AI model will analyze your text and replace personal identifiable information (PII) such as names,
-          addresses, phone numbers, and other sensitive data with generic placeholders.
+          Le modèle d'IA analysera votre texte et remplacera les informations personnelles identifiables (IPI) telles que les noms,
+          adresses, numéros de téléphone et autres données sensibles par des marqueurs génériques.
         </Text>
         <Text>
-          This process happens entirely on your computer, ensuring your data never leaves your machine.
+          Ce processus se déroule entièrement sur votre ordinateur, garantissant que vos données ne quittent jamais votre machine.
         </Text>
       </Box>
 
@@ -112,20 +112,20 @@ Phone: (555) 789-0123
         >
           <AlertIcon boxSize="24px" mr={0} mb={2} />
           <AlertTitle mt={2} mb={1} fontSize="lg">
-            {isOllamaNotRunning ? "Ollama Not Running" : "Anonymization Failed"}
+            {isOllamaNotRunning ? "Ollama n'est pas en cours d'exécution" : "Échec de l'anonymisation"}
           </AlertTitle>
           <AlertDescription maxWidth="sm">
             {error}
             {isOllamaNotRunning && (
               <Box mt={2}>
-                <Text mb={2}>Please make sure Ollama is installed and running before trying again.</Text>
+                <Text mb={2}>Veuillez vous assurer qu'Ollama est installé et en cours d'exécution avant de réessayer.</Text>
                 <Button
                   size="sm"
                   colorScheme="blue"
                   onClick={handleGoToInstallation}
                   mt={2}
                 >
-                  Go to Installation Instructions
+                  Aller aux Instructions d'Installation
                 </Button>
               </Box>
             )}
@@ -135,15 +135,15 @@ Phone: (555) 789-0123
 
       <Box>
         <Flex justify="space-between" align="center" mb={2}>
-          <Text fontWeight="bold">Input Text</Text>
+          <Text fontWeight="bold">Texte d'entrée</Text>
           <Button size="sm" onClick={handleLoadSample} colorScheme="blue" variant="outline">
-            Load Sample Text
+            Charger un Exemple de Texte
           </Button>
         </Flex>
         <Textarea
           value={sampleText}
           onChange={(e) => setSampleText(e.target.value)}
-          placeholder="Enter or paste legal text containing personal information that you want to anonymize..."
+          placeholder="Entrez ou collez un texte juridique contenant des informations personnelles que vous souhaitez anonymiser..."
           minHeight="200px"
           mb={4}
         />
@@ -156,13 +156,13 @@ Phone: (555) 789-0123
           mb={6}
         >
           {isLoading ? <Spinner size="sm" mr={2} /> : null}
-          {isLoading ? 'Anonymizing...' : 'Anonymize Text'}
+          {isLoading ? 'Anonymisation en cours...' : 'Anonymiser le Texte'}
         </Button>
 
         {(anonymizedText || hasAnonymized) && (
           <Box>
             <Text fontWeight="bold" mb={2}>
-              Anonymized Result
+              Résultat Anonymisé
             </Text>
             <Textarea
               value={anonymizedText}
@@ -175,7 +175,7 @@ Phone: (555) 789-0123
       </Box>
 
       <StepNavigation
-        nextLabel="Complete Tutorial"
+        nextLabel="Terminer le Tutoriel"
         nextDisabled={!hasAnonymized}
       />
     </VStack>

@@ -36,11 +36,11 @@ const DownloadModelStep = () => {
       if (success) {
         setDownloadComplete(true);
       } else if (!error) {
-        setError('Failed to download the model. Please try again.');
+        setError('Échec du téléchargement du modèle. Veuillez réessayer.');
       }
     } catch (error) {
-      console.error('Error downloading model:', error);
-      setError('An error occurred while downloading the model. Please try again.');
+      console.error('Erreur lors du téléchargement du modèle:', error);
+      setError('Une erreur est survenue lors du téléchargement du modèle. Veuillez réessayer.');
     } finally {
       setIsLoading(false);
     }
@@ -54,23 +54,23 @@ const DownloadModelStep = () => {
     <VStack gap={6} align="stretch">
       <Box textAlign="center" py={4}>
         <Text fontSize="lg" mb={4}>
-          Download the {systemInfo.recommendedModel} Model
+          Télécharger le modèle {systemInfo.recommendedModel}
         </Text>
         <Text fontSize="md" color="gray.600">
-          This model will be downloaded and stored locally on your computer.
+          Ce modèle sera téléchargé et stocké localement sur votre ordinateur.
         </Text>
       </Box>
 
       <Box p={6} borderRadius="md" borderWidth="1px" borderColor="blue.200" bg="blue.50">
         <Text fontWeight="bold" mb={4} fontSize="lg">
-          About this model
+          À propos de ce modèle
         </Text>
         <Text mb={3}>
-          The {systemInfo.recommendedModel} model is optimized for text anonymization tasks.
-          It can identify and replace personal information while preserving the context and meaning of your documents.
+          Le modèle {systemInfo.recommendedModel} est optimisé pour les tâches d'anonymisation de texte.
+          Il peut identifier et remplacer les informations personnelles tout en préservant le contexte et le sens de vos documents.
         </Text>
         <Text>
-          The download size is approximately 4-8 GB depending on the model, and it will be stored on your local machine.
+          La taille du téléchargement est d'environ 4-8 Go selon le modèle, et il sera stocké sur votre machine locale.
         </Text>
       </Box>
 
@@ -82,19 +82,19 @@ const DownloadModelStep = () => {
             onClick={handleDownload}
             disabled={isLoading}
           >
-            Start Download
+            Démarrer le téléchargement
           </Button>
           <Text fontSize="sm" color="gray.500" mt={2}>
-            This may take several minutes depending on your internet connection.
+            Cela peut prendre plusieurs minutes selon votre connexion internet.
           </Text>
           <Text fontSize="sm" color="orange.500" mt={2}>
-            Make sure Ollama is installed and running before starting the download.
+            Assurez-vous qu'Ollama est installé et en cours d'exécution avant de commencer le téléchargement.
           </Text>
         </Box>
       ) : (
         <Box>
           <Text fontWeight="bold" mb={2}>
-            Download Progress
+            Progression du téléchargement
           </Text>
           <Progress 
             value={downloadProgress} 
@@ -118,10 +118,10 @@ const DownloadModelStep = () => {
             >
               <CheckCircleIcon boxSize="24px" mr={0} mb={2} />
               <AlertTitle mt={2} mb={1} fontSize="lg">
-                Download Complete!
+                Téléchargement terminé !
               </AlertTitle>
               <AlertDescription maxWidth="sm">
-                The model has been successfully downloaded and is ready to use for anonymization.
+                Le modèle a été téléchargé avec succès et est prêt à être utilisé pour l'anonymisation.
               </AlertDescription>
             </Alert>
           ) : error ? (
@@ -138,20 +138,20 @@ const DownloadModelStep = () => {
             >
               <AlertIcon boxSize="24px" mr={0} mb={2} />
               <AlertTitle mt={2} mb={1} fontSize="lg">
-                {isOllamaNotRunning ? "Ollama Not Running" : "Download Failed"}
+                {isOllamaNotRunning ? "Ollama n'est pas en cours d'exécution" : "Échec du téléchargement"}
               </AlertTitle>
               <AlertDescription maxWidth="sm">
                 {error}
                 {isOllamaNotRunning && (
                   <Box mt={2}>
-                    <Text mb={2}>Please make sure Ollama is installed and running before trying again.</Text>
+                    <Text mb={2}>Veuillez vous assurer qu'Ollama est installé et en cours d'exécution avant de réessayer.</Text>
                     <Button
                       size="sm"
                       colorScheme="blue"
                       onClick={handleGoToInstallation}
                       mt={2}
                     >
-                      Go to Installation Instructions
+                      Aller aux instructions d'installation
                     </Button>
                   </Box>
                 )}
@@ -162,12 +162,12 @@ const DownloadModelStep = () => {
                 onClick={handleDownload}
                 disabled={isLoading}
               >
-                Try Again
+                Réessayer
               </Button>
             </Alert>
           ) : (
             <Text textAlign="center" color="gray.600">
-              Downloading... {downloadProgress}%
+              Téléchargement en cours... {downloadProgress}%
             </Text>
           )}
         </Box>
@@ -175,7 +175,7 @@ const DownloadModelStep = () => {
 
       <StepNavigation
         nextDisabled={!downloadComplete}
-        nextLabel="Continue to Anonymization"
+        nextLabel="Continuer vers l'anonymisation"
       />
     </VStack>
   );

@@ -12,7 +12,7 @@ const InstallOllamaStep = () => {
         return (
           <VStack align="start" gap={4}>
             <Text>
-              To install Ollama on macOS, you can download the installer from the official website:
+              Pour installer Ollama sur macOS, vous pouvez télécharger l'installateur depuis le site officiel :
             </Text>
             <Link 
               href="https://ollama.com/download/mac" 
@@ -21,13 +21,13 @@ const InstallOllamaStep = () => {
               fontWeight="bold"
               fontSize="lg"
             >
-              Download Ollama for macOS <ExternalLinkIcon mx="2px" />
+              Télécharger Ollama pour macOS <ExternalLinkIcon mx="2px" />
             </Link>
-            <Text>After downloading, follow these steps:</Text>
+            <Text>Après le téléchargement, suivez ces étapes :</Text>
             <UnorderedList spacing={2} pl={4}>
-              <ListItem>Open the downloaded .dmg file</ListItem>
-              <ListItem>Drag the Ollama app to your Applications folder</ListItem>
-              <ListItem>Open Ollama from your Applications folder</ListItem>
+              <ListItem>Ouvrez le fichier .dmg téléchargé</ListItem>
+              <ListItem>Faites glisser l'application Ollama dans votre dossier Applications</ListItem>
+              <ListItem>Ouvrez Ollama depuis votre dossier Applications</ListItem>
             </UnorderedList>
           </VStack>
         );
@@ -35,7 +35,7 @@ const InstallOllamaStep = () => {
         return (
           <VStack align="start" gap={4}>
             <Text>
-              To install Ollama on Windows, you can download the installer from the official website:
+              Pour installer Ollama sur Windows, vous pouvez télécharger l'installateur depuis le site officiel :
             </Text>
             <Link 
               href="https://ollama.com/download/windows" 
@@ -44,13 +44,13 @@ const InstallOllamaStep = () => {
               fontWeight="bold"
               fontSize="lg"
             >
-              Download Ollama for Windows <ExternalLinkIcon mx="2px" />
+              Télécharger Ollama pour Windows <ExternalLinkIcon mx="2px" />
             </Link>
-            <Text>After downloading, follow these steps:</Text>
+            <Text>Après le téléchargement, suivez ces étapes :</Text>
             <UnorderedList spacing={2} pl={4}>
-              <ListItem>Run the downloaded installer</ListItem>
-              <ListItem>Follow the installation wizard</ListItem>
-              <ListItem>Launch Ollama after installation</ListItem>
+              <ListItem>Exécutez l'installateur téléchargé</ListItem>
+              <ListItem>Suivez l'assistant d'installation</ListItem>
+              <ListItem>Lancez Ollama après l'installation</ListItem>
             </UnorderedList>
           </VStack>
         );
@@ -58,13 +58,13 @@ const InstallOllamaStep = () => {
         return (
           <VStack align="start" gap={4}>
             <Text>
-              To install Ollama on Linux, you can use the following command in your terminal:
+              Pour installer Ollama sur Linux, vous pouvez utiliser la commande suivante dans votre terminal :
             </Text>
             <Code p={3} borderRadius="md" bg="gray.100" width="100%">
               curl -fsSL https://ollama.com/install.sh | sh
             </Code>
-            <Text>This script will install Ollama on your system.</Text>
-            <Text>After installation, you can start Ollama with:</Text>
+            <Text>Ce script installera Ollama sur votre système.</Text>
+            <Text>Après l'installation, vous pouvez démarrer Ollama avec :</Text>
             <Code p={3} borderRadius="md" bg="gray.100" width="100%">
               ollama serve
             </Code>
@@ -74,7 +74,7 @@ const InstallOllamaStep = () => {
         return (
           <VStack align="start" gap={4}>
             <Text>
-              Please visit the official Ollama website to download the appropriate version for your system:
+              Veuillez visiter le site officiel d'Ollama pour télécharger la version appropriée pour votre système :
             </Text>
             <Link 
               href="https://ollama.com/download" 
@@ -83,7 +83,7 @@ const InstallOllamaStep = () => {
               fontWeight="bold"
               fontSize="lg"
             >
-              Download Ollama <ExternalLinkIcon mx="2px" />
+              Télécharger Ollama <ExternalLinkIcon mx="2px" />
             </Link>
           </VStack>
         );
@@ -94,20 +94,20 @@ const InstallOllamaStep = () => {
     <VStack gap={6} align="stretch">
       <Box textAlign="center" py={4}>
         <Text fontSize="lg" mb={4}>
-          Let's install Ollama on your {systemInfo.os} system
+          Installons Ollama sur votre système {systemInfo.os}
         </Text>
       </Box>
 
       <Box p={6} borderRadius="md" borderWidth="1px" borderColor="blue.200" bg="blue.50">
         <Text fontWeight="bold" mb={4} fontSize="lg">
-          What is Ollama?
+          Qu'est-ce qu'Ollama ?
         </Text>
         <Text mb={3}>
-          Ollama is an open-source tool that allows you to run large language models locally on your computer.
-          This means your data never leaves your machine, ensuring privacy and security.
+          Ollama est un outil open-source qui vous permet d'exécuter des modèles de langage localement sur votre ordinateur.
+          Cela signifie que vos données ne quittent jamais votre machine, garantissant ainsi la confidentialité et la sécurité.
         </Text>
         <Text>
-          For legal professionals, this is crucial when working with sensitive client information that needs to remain confidential.
+          Pour les professionnels du droit, c'est crucial lors du traitement d'informations clients sensibles qui doivent rester confidentielles.
         </Text>
       </Box>
 
@@ -115,22 +115,22 @@ const InstallOllamaStep = () => {
 
       <Box>
         <Text fontWeight="bold" mb={4} fontSize="lg">
-          Installation Instructions
+          Instructions d'installation
         </Text>
         {getInstallInstructions()}
       </Box>
 
       <Box p={6} borderRadius="md" borderWidth="1px" borderColor="yellow.200" bg="yellow.50">
         <Text fontWeight="bold" mb={2}>
-          Important Note:
+          Note importante :
         </Text>
         <Text>
-          After installing Ollama, make sure it's running before proceeding to the next step.
-          You should see the Ollama icon in your system tray or menu bar.
+          Après avoir installé Ollama, assurez-vous qu'il est en cours d'exécution avant de passer à l'étape suivante.
+          Vous devriez voir l'icône Ollama dans votre barre des tâches ou barre de menu.
         </Text>
       </Box>
 
-      <StepNavigation nextLabel="Continue to Model Selection" />
+      <StepNavigation nextLabel="Continuer vers la sélection du modèle" />
     </VStack>
   );
 };

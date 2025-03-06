@@ -52,21 +52,21 @@ const ChooseModelStep = () => {
     {
       id: 'llama3:8b',
       name: 'Llama 3 (8B)',
-      description: 'A lightweight model suitable for basic anonymization tasks.',
+      description: "Un modèle léger adapté aux tâches d'anonymisation de base.",
       size: '4.7 GB',
       recommended: systemInfo.recommendedModel === 'llama3:8b',
     },
     {
       id: 'llama3',
       name: 'Llama 3',
-      description: 'A balanced model with good performance for most anonymization needs.',
+      description: "Un modèle équilibré avec de bonnes performances pour la plupart des besoins d'anonymisation.",
       size: '8.1 GB',
       recommended: systemInfo.recommendedModel === 'llama3',
     },
     {
       id: 'mistral',
       name: 'Mistral',
-      description: 'A powerful model for complex anonymization tasks.',
+      description: "Un modèle puissant pour les tâches d'anonymisation complexes.",
       size: '7.4 GB',
       recommended: systemInfo.recommendedModel === 'mistral',
     },
@@ -86,23 +86,23 @@ const ChooseModelStep = () => {
     <VStack gap={6} align="stretch">
       <Box textAlign="center" py={4}>
         <Text fontSize="lg" mb={4}>
-          Choose an AI model for anonymization
+          Choisissez un modèle d'IA pour l'anonymisation
         </Text>
         <Text fontSize="md" color="gray.600">
-          Based on your system ({systemInfo.os}, {systemInfo.arch}), we recommend the following models.
+          Selon votre système ({systemInfo.os}, {systemInfo.arch}), nous recommandons les modèles suivants.
         </Text>
       </Box>
 
       <Box p={6} borderRadius="md" borderWidth="1px" borderColor="blue.200" bg="blue.50">
         <Text fontWeight="bold" mb={4} fontSize="lg">
-          Why choose the right model?
+          Pourquoi choisir le bon modèle ?
         </Text>
         <Text mb={3}>
-          Different models have different capabilities and resource requirements. 
-          Smaller models run faster and use less memory, while larger models may provide better anonymization quality.
+          Les différents modèles ont des capacités et des besoins en ressources différents. 
+          Les modèles plus petits s'exécutent plus rapidement et utilisent moins de mémoire, tandis que les modèles plus grands peuvent offrir une meilleure qualité d'anonymisation.
         </Text>
         <Text>
-          We've pre-selected the model that we think will work best on your system, but you can choose another if you prefer.
+          Nous avons présélectionné le modèle qui, selon nous, fonctionnera le mieux sur votre système, mais vous pouvez en choisir un autre si vous préférez.
         </Text>
       </Box>
 
@@ -137,7 +137,7 @@ const ChooseModelStep = () => {
       </VStack>
 
       <StepNavigation 
-        nextLabel="Download Model" 
+        nextLabel="Télécharger le modèle" 
         nextDisabled={!selectedModel}
       />
     </VStack>

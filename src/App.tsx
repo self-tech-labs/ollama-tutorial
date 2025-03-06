@@ -15,42 +15,42 @@ import CompleteStep from './components/steps/CompleteStep';
 const AppContent = () => {
   const { currentStep } = useTutorial();
 
-  // Map steps to components and titles
+  // Map steps to components and titles (translated to French)
   const stepConfig = {
     [TutorialStep.WELCOME]: {
       component: <WelcomeStep />,
-      title: 'Welcome',
-      subtitle: 'Let\'s get started with Ollama for document anonymization',
+      title: 'Bienvenue',
+      subtitle: 'Commençons avec Ollama pour l\'anonymisation de documents',
     },
     [TutorialStep.SYSTEM_CHECK]: {
       component: <SystemCheckStep />,
-      title: 'System Check',
-      subtitle: 'Checking your system compatibility',
+      title: 'Vérification du Système',
+      subtitle: 'Vérification de la compatibilité de votre système',
     },
     [TutorialStep.INSTALL_OLLAMA]: {
       component: <InstallOllamaStep />,
-      title: 'Install Ollama',
-      subtitle: 'Setting up Ollama on your system',
+      title: 'Installation d\'Ollama',
+      subtitle: 'Configuration d\'Ollama sur votre système',
     },
     [TutorialStep.CHOOSE_MODEL]: {
       component: <ChooseModelStep />,
-      title: 'Choose a Model',
-      subtitle: 'Select the right model for your needs',
+      title: 'Choisir un Modèle',
+      subtitle: 'Sélectionnez le modèle adapté à vos besoins',
     },
     [TutorialStep.DOWNLOAD_MODEL]: {
       component: <DownloadModelStep />,
-      title: 'Download Model',
-      subtitle: 'Downloading the selected model to your computer',
+      title: 'Télécharger le Modèle',
+      subtitle: 'Téléchargement du modèle sélectionné sur votre ordinateur',
     },
     [TutorialStep.TEST_ANONYMIZATION]: {
       component: <TestAnonymizationStep />,
-      title: 'Test Anonymization',
-      subtitle: 'Try out the anonymization capabilities',
+      title: 'Tester l\'Anonymisation',
+      subtitle: 'Essayez les capacités d\'anonymisation',
     },
     [TutorialStep.COMPLETE]: {
       component: <CompleteStep />,
-      title: 'Tutorial Complete',
-      subtitle: 'You\'re all set to use Ollama for document anonymization',
+      title: 'Tutoriel Terminé',
+      subtitle: 'Vous êtes prêt à utiliser Ollama pour l\'anonymisation de documents',
     },
   };
 

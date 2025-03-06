@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text, Image, useColorModeValue } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 type LayoutProps = {
@@ -8,36 +8,45 @@ type LayoutProps = {
 };
 
 const Layout = ({ children, title, subtitle }: LayoutProps) => {
-  const bgColor = 'white';
-  const borderColor = 'gray.200';
+  // Modern color scheme
+  const bgColor = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.100', 'gray.700');
+  const primaryColor = 'teal.500';
+  const subtitleColor = useColorModeValue('gray.600', 'gray.400');
 
   return (
-    <Box minH="100vh" bg="gray.50">
+    <Box minH="100vh" bg={useColorModeValue('gray.50', 'gray.900')} width="100%">
       <Flex
         as="header"
         align="center"
-        justify="center"
+        justify="space-between"
         py={4}
+        px={8}
         bg={bgColor}
         borderBottom="1px"
         borderColor={borderColor}
         boxShadow="sm"
+        position="sticky"
+        top="0"
+        zIndex="sticky"
+        width="100%"
       >
-        <Flex align="center" maxW="container.lg" width="full" px={4}>
-          <Heading as="h1" size="md" color="brand.500">
-            Ollama Anonymization Tutorial
+        <Flex align="center">
+          <Image src="/ritsl_1.png" alt="RITSL Logo" height="40px" mr={3} />
+          <Heading as="h1" size="md" color={primaryColor} fontWeight="600">
+            Tutoriel d'Anonymisation RITSL
           </Heading>
         </Flex>
       </Flex>
 
-      <Container maxW="container.md" py={8}>
+      <Container maxW="container.xl" py={12} px={[4, 6, 8]}>
         {title && (
-          <Box mb={6} textAlign="center">
-            <Heading as="h2" size="xl" mb={2}>
+          <Box mb={8} textAlign="center">
+            <Heading as="h2" size="xl" mb={3} color={primaryColor}>
               {title}
             </Heading>
             {subtitle && (
-              <Text fontSize="lg" color="gray.600">
+              <Text fontSize="lg" color={subtitleColor}>
                 {subtitle}
               </Text>
             )}
@@ -46,20 +55,35 @@ const Layout = ({ children, title, subtitle }: LayoutProps) => {
 
         <Box
           bg={bgColor}
-          p={6}
-          borderRadius="lg"
-          boxShadow="md"
+          p={8}
+          borderRadius="xl"
+          boxShadow="lg"
           borderWidth="1px"
           borderColor={borderColor}
+          transition="all 0.3s ease"
+          _hover={{ boxShadow: "xl" }}
         >
           {children}
         </Box>
       </Container>
 
-      <Box as="footer" py={4} textAlign="center" borderTop="1px" borderColor={borderColor}>
-        <Text fontSize="sm" color="gray.500">
-          © {new Date().getFullYear()} Ollama Anonymization Tutorial for Legal Professionals
-        </Text>
+      <Box 
+        as="footer" 
+        py={6} 
+        textAlign="center" 
+        borderTop="1px" 
+        borderColor={borderColor}
+        bg={bgColor}
+      >
+        <Flex justify="center" align="center" direction="column">
+          <Image src="/ritsl_2.png" alt="RITSL Logo" height="30px" mb={3} />
+          <Text fontSize="sm" color={subtitleColor}>
+            © {new Date().getFullYear()} RITSL - Tutoriel d'Anonymisation pour Professionnels Juridiques
+          </Text>
+          <Text fontSize="sm" color={subtitleColor} mt={2}>
+            Made with ❤️ by <a href="https://ritsl.com" target="_blank" rel="noopener noreferrer">ritsl.com</a>
+          </Text>
+        </Flex>
       </Box>
     </Box>
   );

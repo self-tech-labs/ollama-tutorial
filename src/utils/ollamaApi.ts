@@ -96,7 +96,7 @@ export const anonymizeText = async (
   try {
     const response = await axios.post(`${OLLAMA_API_BASE_URL}/api/generate`, {
       model: modelName,
-      prompt: `Please anonymize the following text by replacing all personal identifiable information (names, addresses, phone numbers, email addresses, etc.) with generic placeholders. Keep the structure and meaning of the text intact. Here's the text to anonymize:\n\n${text}`,
+      prompt: `Please anonymize the following text by replacing all personal identifiable information (names, addresses, phone numbers, email addresses, etc.) with generic placeholders. Keep the structure, language, and meaning of the text intact. Here's the text to anonymize:\n\n${text}`,
       stream: false,
     });
     
@@ -118,8 +118,8 @@ export const getSystemInfo = async (): Promise<{os: string, arch: string}> => {
   // In a real application, this would be done through a backend API
   // For this tutorial, we'll simulate it with browser detection
   const userAgent = navigator.userAgent;
-  let os = 'unknown';
-  let arch = 'unknown';
+  let os = 'inconnu';
+  let arch = 'inconnu';
   
   if (userAgent.indexOf('Win') !== -1) os = 'windows';
   else if (userAgent.indexOf('Mac') !== -1) os = 'macos';
