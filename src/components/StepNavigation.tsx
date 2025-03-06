@@ -1,4 +1,4 @@
-import { Button, Flex, Spacer } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
 import { useTutorial, TutorialStep } from '../context/TutorialContext';
 
 type StepNavigationProps = {
